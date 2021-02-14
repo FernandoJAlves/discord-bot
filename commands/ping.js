@@ -7,6 +7,6 @@ module.exports = {
 }
 
 // this is the entrypoint to the command
-function runCommand(client, message, args) {
+function runCommand(client, message, args, Discord) {
   message.channel.send('pong');
 }
