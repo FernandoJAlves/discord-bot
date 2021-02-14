@@ -8,17 +8,20 @@ module.exports = {
   
 // this is the entrypoint to the command
 async function runCommand(client, message, args, Discord) {
-  if (!args || args.length != 1) return message.reply('Please enter the amount of messages to clear!');
+  const minDelete = 1;
+  const maxDelete = 100;
+  
+  if (!args || args.length != 1) return message.reply('Usage: clear <Amount to delete>');
   const amountToDelete = args[0];
 
   if (isNaN(amountToDelete)) return message.reply('Please enter a valid number!');
-  if (amountToDelete > 100) return message.reply('You cannot delete more than 100 messages!');
-  if (amountToDelete < 1) return message.reply('You must delete at least 1 message!');
+  if (amountToDelete < minDelete) return message.reply(`You must delete at least ${minDelete} message!`);
+  if (amountToDelete > maxDelete) return message.reply(`You cannot delete more than ${maxDelete} messages!`);
 
-  // TODO: catch for when the messages are older than 14 days and check if it is a DM (bulkDelete does not work there)
+  if (message.guild === null) return message.reply('This command only works on server text channels!');
 
   await message.channel.messages.fetch({limit: amountToDelete}).then(messages => {
-    // message.channel.bulkDelete(messages);
+    message.channel.bulkDelete(messages, true);
   });
 
 }
