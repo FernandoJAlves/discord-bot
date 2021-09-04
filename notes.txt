@@ -1,0 +1,32 @@
+
+Docker
+
+- Escolher uma base image (linux)
+- Instalar node/npm
+- Correr o Snorbot
+
+- Instalar dependências (ffmpeg)
+
+https://support.katalon.com/hc/en-us/articles/900006890403-How-to-install-FFMPEG-on-Docker-Image-
+
+https://phoenixnap.com/kb/how-to-ssh-into-docker-container
+
+
+Setup:
+
+docker build -t -rm discord-bot .
+docker run -p 3000:3000 --name disc-bot discord-bot
+
+docker start disc-bot
+docker stop disc-bot
+
+docker exec -it disc-bot /bin/bash
+
+
+
+
+List containers:                    docker ps
+List images:                        docker image ls
+Delete image:                       docker image rm disc-bot
+Delete dangling images:             docker rmi $(docker images -f "dangling=true" -q)
+Remove all stopped containers:      docker container prune
