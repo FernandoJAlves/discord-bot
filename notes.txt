@@ -20,7 +20,7 @@ docker run -p 3000:3000 --name disc-bot discord-bot
 docker start disc-bot
 docker stop disc-bot
 
-docker exec -it disc-bot /bin/bash
+docker exec -it disc-bot /bin/bash <-- this don't work, fix
 
 
 
