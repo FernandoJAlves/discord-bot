@@ -5,12 +5,12 @@ module.exports = {
     await runCommand(...args);
   }
 }
-  
+
 // this is the entrypoint to the command
 async function runCommand(client, message, args, Discord) {
   const minDelete = 1;
   const maxDelete = 100;
-  
+
   if (!args || args.length != 1) return message.reply('Usage: clear <Amount to delete>');
   const amountToDelete = args[0];
 
