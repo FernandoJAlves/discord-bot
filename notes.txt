@@ -23,6 +23,20 @@ docker stop disc-bot
 docker exec -it disc-bot /bin/bash <-- this don't work, fix
 
 
+docker compose exec node-bot /bin/bash
+
+npm install -g npm
+
+
+Run docker-compose:
+
+docker run -it discord-bot_node-bot /bin/bash
+
+
+TIREI AS PORTAS (!!!)
+Ao usar o ytdl para aceder ao Youtube posso ter de fazer uma network interna
+docker-compose (no-cache)
+
 
 
 List containers:                    docker ps
